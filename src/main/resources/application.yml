@@ -12,7 +12,6 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc.lob.non_contextual_creation: true
     open-in-view: false
   liquibase:
@@ -50,9 +49,9 @@ logging:
 springdoc:
   packagesToScan: ru.template.controller
   api-docs:
-    path: swagger/v3/api-docs
+    path: /swagger/v3/api-docs
   swagger-ui:
-    path: swagger-ui
+    path: /swagger-ui
 
 feign:
   client:
