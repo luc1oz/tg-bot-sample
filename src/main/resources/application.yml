@@ -33,7 +33,7 @@ management:
         info: ${spring.application.public-prefix-path}/info
         health: /health
         env: ${spring.application.private-prefix-path}/env
-      base-path: # сбрасывает дефолтнуй маппинг актуатора
+      base-path: # сбрасывает дефолтный маппинг актуатора
 
 info:
   application:
@@ -44,6 +44,7 @@ logging:
     console: "${LOG_CONSOLE_PATTERN:%d{yyyy-MM-dd HH:mm:ss.SSS} %+5level --- [%+15.15thread] %-40.40logger{36} : %msg%n}"
   level:
     ROOT: INFO
+    ru.template: ${SERVICE_TEMPLATE_LOG_LEVEL:INFO}
     org.springframework: ${SERVICE_TEMPLATE_LOG_LEVEL_SPRING:INFO}
 
 springdoc:
