@@ -1,4 +1,4 @@
-package ru.template;
+package ru.luc1o.tgbot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
