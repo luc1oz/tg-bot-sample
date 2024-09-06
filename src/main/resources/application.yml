@@ -4,11 +4,11 @@ server:
 spring:
   application:
     name: tg-bot-service
-    public-prefix-path: ${TG_BOT_SERVICE_PUBLIC_URL_PREFIX:/api/template}
-    private-prefix-path: ${TG_BOT_SERVICE_PRIVATE_URL_PREFIX:/template}
-  datasource:
-    url: ${TG_BOT_SERVICE_DB_JDBC_URL:jdbc:postgresql://localhost:5432/tg_bot_service?currentSchema=tg-bot-service&user=postgres&password=postgres}
-    driver-class-name: org.postgresql.Driver
+    public-prefix-path: ${TG_BOT_SERVICE_PUBLIC_URL_PREFIX:/api/tgbot}
+    private-prefix-path: ${TG_BOT_SERVICE_PRIVATE_URL_PREFIX:/tgbot}
+#  datasource:
+#    url: ${TG_BOT_SERVICE_DB_JDBC_URL:jdbc:postgresql://localhost:5432/tg_bot_service?currentSchema=tg-bot-service&user=postgres&password=postgres}
+#    driver-class-name: org.po stgresql.Driver
   jpa:
     properties:
       hibernate:
@@ -48,19 +48,29 @@ logging:
     org.springframework: ${TG_BOT_SERVICE_LOG_LEVEL_SPRING:INFO}
 
 springdoc:
-  packagesToScan: ru.template.controller
+  packagesToScan: ru.luc1o.tgbot
   api-docs:
     path: /swagger/v3/api-docs
   swagger-ui:
     path: /swagger-ui
 
-feign:
-  client:
-    config:
-      any-service:
-        api-base-url: ${ANY_SERVICE_PRIVATE_URL_PREFIX:/any}
-        url: ${ANY_SERVICE_HOST:http://localhost:8082}
-      default:
-        connectTimeout: ${FEIGN_CONNECT_TIMEOUT:5000}
-        readTimeout: ${FEIGN_READ_TIMEOUT:5000}
-        loggerLevel: ${FEIGN_LOGGER_LEVEL:full}
+bot:
+  name: ${TELEGRAM_BOT_NAME:no-name}
+  token: ${TELEGRAM_BOT_TOKEN:no-token}
+#
+#
+#feign:
+#  client:
+#    config:
+#      telegram-service:
+#        bot:
+#          api-url: ${BOT_API_TELEGRAM_SERVICE_HOST:http://localhost:8082}
+#          api-base-url: ${BOT_API_TELEGRAM_PRIVATE_URL_PREFIX:}
+#        user:
+#          api-url: ${USER_API_TELEGRAM_SERVICE_HOST:http://localhost:8082}
+#          api-base-url: ${USER_API_TELEGRAM_PRIVATE_URL_PREFIX:}
+#      default:
+#        connectTimeout: ${FEIGN_CONNECT_TIMEOUT:5000}
+#        readTimeout: ${FEIGN_READ_TIMEOUT:5000}
+#        loggerLevel: ${FEIGN_LOGGER_LEVEL:full}
+

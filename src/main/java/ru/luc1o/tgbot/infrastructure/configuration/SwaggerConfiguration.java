@@ -1,4 +1,4 @@
-package ru.luc1o.tgbot;
+package ru.luc1o.tgbot.infrastructure.configuration;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
